@@ -16,7 +16,7 @@ export const Header = () => {
                     <Nav />
 
                     <Link href="/contact">
-                        <Button>Kontaktieren Sie uns</Button>
+                        <Button>Kontaktieren Sie Uns</Button>
                     </Link>
                 </div>
 
