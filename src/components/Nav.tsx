@@ -14,15 +14,15 @@ const links = [
         path: "/services"
     },
     {
-        name: "resume",
-        path: "/resume"
+        name: "Über uns",
+        path: "/about"
     },
     {
-        name: "work",
-        path: "/work"
+        name: "portfolio",
+        path: "/portfolio"
     },
     {
-        name: "contact",
+        name: "Kontakt",
         path: "/contact"
     }
 ]
@@ -33,7 +33,7 @@ export const Nav = () => {
         <nav className="flex gap-8">
             {links.map((link, index) => {
                 return <Link
-                    className={`${link.path === pathName && "text-accent border-b-2 border-accent"} capitalize font-medium hover:text-accent duration-300 transition-all`}
+                    className={`${link.path === pathName && "text-accent border-b-2 border-accent"} capitalize font-medium hover:text-accent `}
                     href={link.path}
                     key={index}>
                     {link.name}
