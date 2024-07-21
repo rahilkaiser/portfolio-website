@@ -2,7 +2,7 @@ import {FaGithub, FaInstagram, FaLinkedin, FaTiktok, FaTwitter, FaYoutube} from 
 import Link from "next/link";
 
 const socials = [
-    {icon: <FaGithub/>, path: ''},
+    // {icon: <FaGithub/>, path: ''},
     {icon: <FaLinkedin/>, path: ''},
     {icon: <FaYoutube/>, path: ''},
     {icon: <FaTwitter/>, path: ''},
@@ -22,8 +22,7 @@ export const Socials = ({containerStyles, iconStyles}: Props) => {
                 <Link
                     key={index}
                     href={social.path}
-                    className={iconStyles}
-                >
+                    className={iconStyles}>
                     {social.icon}
                 </Link>
             ))}
