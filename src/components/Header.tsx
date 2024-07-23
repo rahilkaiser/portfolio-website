@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Nav } from "./Nav";
 import { Button } from "./ui/button";
 import {MobileNav} from "@/components/MobileNav";
+import {FiDownload} from "react-icons/fi";
 
 export const Header = () => {
     return (
@@ -16,9 +17,11 @@ export const Header = () => {
                 <div className="hidden xl:flex items-center gap-8">
                     <Nav />
 
-                    <Link href="/contact">
-                        <Button>Hire Me</Button>
-                    </Link>
+                    <Button variant="outline" size="md"
+                            className="uppercase flex items-center gap-2 duration-500">
+                        Download CV
+                        <FiDownload className="text-xl"/>
+                    </Button>
                 </div>
 
             {/*    mobile nav*/}

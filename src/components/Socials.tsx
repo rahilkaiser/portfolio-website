@@ -2,12 +2,12 @@ import {FaGithub, FaInstagram, FaLinkedin, FaTiktok, FaTwitter, FaYoutube} from 
 import Link from "next/link";
 
 const socials = [
-    // {icon: <FaGithub/>, path: ''},
+    {icon: <FaGithub/>, path: 'https://github.com/rahilkaiser'},
     {icon: <FaLinkedin/>, path: ''},
-    {icon: <FaYoutube/>, path: ''},
+    // {icon: <FaYoutube/>, path: ''},
     {icon: <FaTwitter/>, path: ''},
-    {icon: <FaInstagram/>, path: ''},
-    {icon: <FaTiktok/>, path: ''},
+    // {icon: <FaInstagram/>, path: ''},
+    // {icon: <FaTiktok/>, path: ''},
 ]
 
 interface Props {

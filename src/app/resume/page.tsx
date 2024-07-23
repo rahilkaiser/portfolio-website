@@ -178,7 +178,11 @@ export default function Resume() {
                     <div className="min-h-[70vh] w-full">
                         {/*Experience*/}
                         <TabsContent value="experience" className="w-full">
-                            <div className="flex flex-col gap-[30px] text-center xl:text-left">
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.2, duration: 0.4, ease: "easeIn" }}
+                                className="flex flex-col gap-[30px] text-center xl:text-left">
                                 <h3 className="text-4xl font-bold">
                                     {experience.title}
                                 </h3>
@@ -199,11 +203,15 @@ export default function Resume() {
                                         })}
                                     </ul>
                                 </ScrollArea>
-                            </div>
+                            </motion.div>
                         </TabsContent>
                         {/*Education*/}
                         <TabsContent value="education" className="w-full">
-                            <div className="flex flex-col gap-[30px] text-center xl:text-left">
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.2, duration: 0.4, ease: "easeIn" }}
+                                className="flex flex-col gap-[30px] text-center xl:text-left">
                                 <h3 className="text-4xl font-bold">
                                     {education.title}
                                 </h3>
@@ -224,13 +232,17 @@ export default function Resume() {
                                         })}
                                     </ul>
                                 </ScrollArea>
-                            </div>
+                            </motion.div>
                         </TabsContent>
                         {/*Skills*/}
 
 
                         <TabsContent value="skills" className="w-full h-full">
-                            <div className="flex flex-col gap-[30px] text-center xl:text-left">
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.2, duration: 0.4, ease: "easeIn" }}
+                                className="flex flex-col gap-[30px] text-center xl:text-left">
                                 <div className="flex flex-col gap-[30px]">
                                     <h3 className="text-4xl font-bold">{skills.title}</h3>
                                     <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">{skills.description}</p>
@@ -251,12 +263,16 @@ export default function Resume() {
                                         </li>
                                     })}
                                 </ul>
-                            </div>
+                            </motion.div>
                         </TabsContent>
                         {/*About me*/}
                         <TabsContent value="about" className="w-full text-center xl:text-left">
-                            <div className="flex flex-col gap-[30px]">
-                                <h3 className="max-w-[600px] text-white/60 mx-auto xl:mx-0">{about.title}</h3>
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.2, duration: 0.4, ease: "easeIn" }}
+                                className="flex flex-col gap-[30px]">
+                                <h3 className="text-4xl font-bold">{about.title}</h3>
                                 <p>{about.description}</p>
                                 <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-6 max-2-[620px] mx-auto xl:mx-0">
                                     {about.info.map((item, index) => {
@@ -266,7 +282,7 @@ export default function Resume() {
                                         </li>
                                     })}
                                 </ul>
-                            </div>
+                            </motion.div>
                         </TabsContent>
                     </div>
                 </Tabs>
