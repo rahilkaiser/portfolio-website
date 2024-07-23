@@ -9,7 +9,7 @@ export const Header = () => {
             <div className="container mx-auto flex justify-between items-center">
                 <Link href={""}>
                     <h1 className="text-4xl font-semibold ">
-                        EasyDEV<span className="text-accent">.</span>
+                        Kaiser<span className="text-accent">.</span>
                     </h1>
                 </Link>
             {/*    DESKTOP NAV*/}
@@ -17,7 +17,7 @@ export const Header = () => {
                     <Nav />
 
                     <Link href="/contact">
-                        <Button>Kontaktieren Sie Uns</Button>
+                        <Button>Hire Me</Button>
                     </Link>
                 </div>
 
