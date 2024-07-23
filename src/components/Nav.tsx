@@ -14,8 +14,8 @@ const links = [
         path: "/experience"
     },
     {
-        name: "Über uns",
-        path: "/about"
+        name: "resume",
+        path: "/resume"
     },
     {
         name: "portfolio",
