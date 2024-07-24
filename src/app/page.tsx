@@ -16,7 +16,7 @@ export default function Home() {
                 y:"0%"
             }}
             transition={{
-                delay: 0.2, duration: 0.4,
+                delay: 0.8, duration: 0.4,
             }}
             className="h-full">
             <div className="container mx-auto">

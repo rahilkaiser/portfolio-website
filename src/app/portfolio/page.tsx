@@ -82,7 +82,7 @@ export default function Portfolio() {
                 y:"0%"
             }}
             transition={{
-                delay: 0.2, duration: 0.4,
+                delay: 0.8, duration: 0.4,
             }}
             className="min-h-[80vh] flex flex-col justify-center py-12 xl:px-0"
         >

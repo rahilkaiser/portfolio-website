@@ -1,12 +1,14 @@
 "use client"
 
-import { Input } from "@/components/ui/input";
+import {Input} from "@/components/ui/input";
 import {motion} from "framer-motion";
-import {FaEnvelope, FaMapMarkerAlt, FaPhoneAlt} from "react-icons/fa";
-import {Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue} from "@/components/ui/select";
+import {FaEnvelope, FaMapMarkerAlt, FaPhoneAlt, FaSpinner} from "react-icons/fa";
+
 import {Textarea} from "@/components/ui/textarea";
 import {Button} from "@/components/ui/button";
-
+import {useRef, useState} from "react";
+import emailjs from '@emailjs/browser';
+import {CircleLoader} from "react-spinners";
 
 const info = [
     {
@@ -26,16 +28,48 @@ const info = [
     }
 ]
 export default function Contact() {
+    const [success, setSuccess] = useState(false);
+    const [error, setError] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+
+    const form: any = useRef(null);
+
+    const sendEmail = (e: any) => {
+        e.preventDefault();
+        setIsLoading(true);
+        setSuccess(false);
+        setError(false);
+
+        emailjs
+            .sendForm(process.env.NEXT_PUBLIC_SERVICE_ID!, process.env.NEXT_PUBLIC_TEMPLATE_ID!, form.current!, {
+                publicKey: process.env.NEXT_PUBLIC_PUBLIC_KEY,
+            })
+            .then(
+                () => {
+                    setIsLoading(false);
+                    setSuccess(true)
+                    form.current.reset()
+
+
+                },
+                (error) => {
+                    setIsLoading(false);
+                    setError(true);
+                    console.log('FAILED...', error.text);
+                },
+            );
+    };
+
     return (
         <motion.section
             initial={{
-                y:"-200vh"
+                y: "-200vh"
             }}
             animate={{
-                y:"0%"
+                y: "0%"
             }}
             transition={{
-                delay: 0.2, duration: 0.4,
+                delay: 0.8, duration: 0.4,
             }}
             className="py-6"
         >
@@ -43,44 +77,47 @@ export default function Contact() {
                 <div className="flex flex-col xl:flex-row gap-[30px]">
                     {/*Form*/}
                     <div className="xl:w-[54%] order-2 xl:order-none">
-                        <form className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
-                            <h3 className="text-4xl text-accent">Let`s work together</h3>
-                            <p className="text-white/60">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et just
-                            </p>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <Input type="firstname" placeholder="Firstname"/>
-                                <Input type="lastname" placeholder="Lastname"/>
-                                <Input type="email" placeholder="Email adress"/>
-                                <Input type="phone" placeholder="Phone number"/>
-                            </div>
-                        {/*    select*/}
-                        {/*    <Select>*/}
-                        {/*        <SelectTrigger className="w-full">*/}
-                        {/*            <SelectValue placeholder="Select a service"/>*/}
-                        {/*        </SelectTrigger>*/}
-                        {/*        <SelectContent>*/}
-                        {/*            <SelectGroup>*/}
-                        {/*                <SelectLabel>Select a service</SelectLabel>*/}
-                        {/*                <SelectItem value="est">Web Development</SelectItem>*/}
-                        {/*                <SelectItem value="cst">UI/UX Design</SelectItem>*/}
-                        {/*                <SelectItem value="mst">Logo Design</SelectItem>*/}
-                        {/*            </SelectGroup>*/}
-                        {/*        </SelectContent>*/}
-                        {/*    </Select>*/}
+                        <form onSubmit={sendEmail} ref={form}
+                              className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl ">
+                            {!isLoading ?
+                                <> <h3 className="text-4xl text-accent">Let`s work together</h3>
+                                    <p className="text-white/60">Lorem ipsum dolor sit amet, consetetur sadipscing
+                                        elitr, sed
+                                        diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
+                                        diam
+                                        voluptua. At vero eos et accusam et just
+                                    </p>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <Input type="firstname" placeholder="Firstname" name="from_forename"/>
+                                        <Input type="lastname" placeholder="Lastname" name="from_lastname"/>
+                                        <Input type="email" placeholder="Email adress" name="email"/>
+                                        <Input type="phone" placeholder="Phone number" name="phone"/>
+                                    </div>
 
-                            <Textarea className="h-[200px]"
-                            placeholder="Type your message here"
-                            />
+                                    <Textarea className="h-[200px]"
+                                              placeholder="Type your message here"
+                                              name="message"
+                                    />
 
-                            <Button size="md" className="max-w-40">Send message</Button>
+                                    <div className="flex items-center gap-4">
+                                        <Button type="submit" size="md" className="max-w-40">
+                                            {!isLoading ? "Send message" : <FaSpinner/>}
+                                        </Button>
+                                        {success && <span className="text-sm text-accent">Your message has been sent successfully</span>}
+                                        {error && <span className="text-sm text-red-600">Something went wrong</span>}
+                                    </div>
+                                </> : <div className="xl:min-h-[60vh] flex justify-center items-center"><CircleLoader color="#00ff99"/></div>
+                            }
                         </form>
                     </div>
+
                     {/*Info*/}
                     <div className="flex-1 flex items-center xl:justify-end order-1 xl:order-none mb-8 xl:mb-0">
                         <ul>
                             {info.map((item, index) => (
                                 <li key={index} className="flex items-center gap-6">
-                                    <div className="w-[52px] h-[52px] xl:w-[72px] xl:h-[72px] bg-[#27272c] text-accent rounded-md flex items-center justify-center">
+                                    <div
+                                        className="w-[52px] h-[52px] xl:w-[72px] xl:h-[72px] bg-[#27272c] text-accent rounded-md flex items-center justify-center">
                                         <div className="text-[28px]">{item.icon}</div>
                                     </div>
                                     <div className="flex-1">

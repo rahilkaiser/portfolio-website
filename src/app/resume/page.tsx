@@ -75,9 +75,9 @@ const education = {
     description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat",
     items: [
         {
-            institution: "Pestalozzischule Zwickau",
-            degree: "Intermediate School Certificate",
-            duration: "09.2012 - 07.2013"
+            institution: "Technical University of Chemnitz",
+            degree: "Bachelor of Applied Computer Science",
+            duration: "04.2017 - 10.2023"
         },
         {
             institution: "Vocational Gymnasium Werdau",
@@ -85,9 +85,9 @@ const education = {
             duration: "08.2013 - 07.2016"
         },
         {
-            institution: "Technical University of Chemnitz",
-            degree: "Bachelor of Applied Computer Science",
-            duration: "04.2017 - 10.2023"
+            institution: "Pestalozzischule Zwickau",
+            degree: "Intermediate School Certificate",
+            duration: "09.2012 - 07.2013"
         },
     ]
 }
@@ -162,7 +162,7 @@ export default function Resume() {
                 y:"0%"
             }}
             transition={{
-                delay: 0.2, duration: 0.4,
+                delay: 0.8, duration: 0.4,
             }}
         className="min-h-[80vh] flex items-center justify-center py-12 xl:py-0"
         >
@@ -205,12 +205,12 @@ export default function Resume() {
                         {/*Education*/}
                         <TabsContent value="education" className="w-full">
                             <motion.div
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{ delay: 0.2, duration: 0.4, ease: "easeIn" }}
+                                initial={{opacity: 0}}
+                                animate={{opacity: 1}}
+                                transition={{delay: 0.2, duration: 0.4, ease: "easeIn"}}
                                 className="flex flex-col gap-[30px] text-center xl:text-left">
                                 <h3 className="text-4xl font-bold">
-                                    {education.title}
+                                {education.title}
                                 </h3>
                                 <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
                                     {education.description}

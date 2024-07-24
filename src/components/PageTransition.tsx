@@ -30,7 +30,7 @@ export const PageTransition = ({children}: Props) => {
                     }}
                     animate={{
                         height: "0vh",
-                        transition: {delay: 0.2, duration: 0.4, ease: "easeOut",}
+                        transition: {delay: 0.8, duration: 0.4, ease: "easeOut",}
                     }}
                 />
                 {children}
