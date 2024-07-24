@@ -178,10 +178,7 @@ export default function Resume() {
                     <div className="min-h-[70vh] w-full">
                         {/*Experience*/}
                         <TabsContent value="experience" className="w-full">
-                            <motion.div
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{ delay: 0.2, duration: 0.4, ease: "easeIn" }}
+                            <div
                                 className="flex flex-col gap-[30px] text-center xl:text-left">
                                 <h3 className="text-4xl font-bold">
                                     {experience.title}
@@ -203,7 +200,7 @@ export default function Resume() {
                                         })}
                                     </ul>
                                 </ScrollArea>
-                            </motion.div>
+                            </div>
                         </TabsContent>
                         {/*Education*/}
                         <TabsContent value="education" className="w-full">

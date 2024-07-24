@@ -9,13 +9,13 @@ const links = [
         name: "home",
         path: "/"
     },
+    // {
+    //     name: "experience",
+    //     path: "/experience"
+    // },
     {
-        name: "services",
-        path: "/services"
-    },
-    {
-        name: "Über uns",
-        path: "/about"
+        name: "resume",
+        path: "/resume"
     },
     {
         name: "portfolio",
