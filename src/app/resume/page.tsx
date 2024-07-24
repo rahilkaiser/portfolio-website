@@ -155,15 +155,15 @@ const skills = {
 export default function Resume() {
     return (
         <motion.div
-        initial={{
-            opacity: 0
-        }}
-        animate={{
-            opacity: 1,
-            transition: {
-                delay: 2.4, duration: 0.4, ease: "easeIn"
-            }
-        }}
+            initial={{
+                y:"-200vh"
+            }}
+            animate={{
+                y:"0%"
+            }}
+            transition={{
+                delay: 0.2, duration: 0.4,
+            }}
         className="min-h-[80vh] flex items-center justify-center py-12 xl:py-0"
         >
             <div className="container mx-auto">

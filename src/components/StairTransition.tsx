@@ -4,7 +4,7 @@ import {usePathname} from "next/navigation";
 import { Stairs } from "./Stairs";
 
 export const StairTransition = () => {
-    const pathName = usePathname();
+        const pathName = usePathname();
 
     return (
         <>

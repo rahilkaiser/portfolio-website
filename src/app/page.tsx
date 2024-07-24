@@ -1,12 +1,24 @@
+"use client"
 import {Button} from "@/components/ui/button";
 import {FiDownload, FiMail} from "react-icons/fi";
 import {Socials} from "@/components/Socials";
 import {Photo} from "@/components/Photo";
 import {Stats} from "@/components/Stats";
+import { motion } from "framer-motion";
 
 export default function Home() {
     return (
-        <section className="h-full">
+        <motion.section
+            initial={{
+                y:"-200vh"
+            }}
+            animate={{
+                y:"0%"
+            }}
+            transition={{
+                delay: 0.2, duration: 0.4,
+            }}
+            className="h-full">
             <div className="container mx-auto">
 
                 <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24 xl:gap-x-16">
@@ -40,6 +52,6 @@ export default function Home() {
                 </div>
             </div>
             <Stats/>
-        </section>
+        </motion.section>
     );
 }
