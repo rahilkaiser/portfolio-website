@@ -20,7 +20,7 @@ export const PageTransition = ({children}: Props) => {
                     }}
                     exit={{
                         height: "140vh",
-                        transition: {duration: 0.5, ease: "easeOut",}
+                        transition: {duration: 0.5, ease: "easeIn",}
                     }}
                 />
                 <motion.div
