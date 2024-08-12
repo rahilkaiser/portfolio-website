@@ -46,9 +46,9 @@ export const MobileNav = () => {
                 </div>
                 <nav className="flex flex-col justify-center items-center gap-8">
                     {links.map((link, index) => (
-                        <SheetClose asChild><Link
-                            className={`${link.path === pathName && "text-accent border-b-2 border-accent"} text-xl capitalize hover:text-accent transition-all`}
-                            href={link.path} key={index}>{link.name}</Link></SheetClose>
+                        <SheetClose key={index} asChild>
+                            <Link className={`${link.path === pathName && "text-accent border-b-2 border-accent"} text-xl capitalize hover:text-accent transition-all`}
+                            href={link.path} >{link.name}</Link></SheetClose>
                     ))}
                 </nav>
             </SheetContent>
