@@ -47,11 +47,6 @@ const experience = {
     description: "Über die letzten Jahre habe ich in verschiedenen Rollen als Full-Stack-Entwickler gearbeitet und dabei umfassende Erfahrungen in der Softwareentwicklung gesammelt. Meine Tätigkeiten umfassten die Entwicklung von Web- und Cloud-basierten Anwendungen, die Wartung und Verbesserung bestehender Systeme sowie die Betreuung von Sicherheits- und Überwachungssystemen.",
     items: [
         {
-            company: "Freiberuflich",
-            position: "Softwareentwickler",
-            duration: "03.2024 - 05.2024"
-        },
-        {
             company: "IBYKUS AG",
             position: "Full Stack Entwickler",
             duration: "08.2022 - 08.2023"
