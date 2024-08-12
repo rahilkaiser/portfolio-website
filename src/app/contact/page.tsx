@@ -13,8 +13,8 @@ import {CircleLoader} from "react-spinners";
 const info = [
     {
         icon: <FaPhoneAlt/>,
-        title: "Phone",
-        description: "+49 178 577 4742",
+        title: "Telefon",
+        description: "+49 375 285 78228",
     },
     {
         icon: <FaEnvelope/>,
@@ -23,7 +23,7 @@ const info = [
     },
     {
         icon: <FaMapMarkerAlt/>,
-        title: "Address",
+        title: "Addresse",
         description: "Prinz-Heinrich-Straße 7A 12307 Berlin",
     }
 ]
@@ -80,33 +80,33 @@ export default function Contact() {
                         <form onSubmit={sendEmail} ref={form}
                               className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl ">
                             {!isLoading ?
-                                <> <h3 className="text-4xl text-accent">Let`s work together</h3>
-                                    <p className="text-white/60">Lorem ipsum dolor sit amet, consetetur sadipscing
-                                        elitr, sed
-                                        diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
-                                        diam
-                                        voluptua. At vero eos et accusam et just
+                                <> <h3 className="text-4xl text-accent">Lassen Sie uns gemeinsam etwas bewegen</h3>
+                                    <p className="text-white/60">
+                                        Ich freue mich darauf, meine Stärken in Ihrem Team einzubringen. Wenn Sie
+                                        Interesse an einer Zusammenarbeit haben, kontaktieren Sie mich gerne über das
+                                        Formular. Ich freue mich auf Ihre Nachricht.
                                     </p>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                        <Input type="firstname" placeholder="Firstname" name="from_forename"/>
-                                        <Input type="lastname" placeholder="Lastname" name="from_lastname"/>
-                                        <Input type="email" placeholder="Email adress" name="email"/>
-                                        <Input type="phone" placeholder="Phone number" name="phone"/>
+                                        <Input type="firstname" placeholder="Vorname" name="from_forename"/>
+                                        <Input type="lastname" placeholder="Nachname" name="from_lastname"/>
+                                        <Input type="email" placeholder="Email-Adresse" name="email"/>
+                                        <Input type="phone" placeholder="Telefonnummer" name="phone"/>
                                     </div>
 
                                     <Textarea className="h-[200px]"
-                                              placeholder="Type your message here"
+                                              placeholder="Nachricht schreiben"
                                               name="message"
                                     />
 
                                     <div className="flex items-center gap-4">
                                         <Button type="submit" size="md" className="max-w-40">
-                                            {!isLoading ? "Send message" : <FaSpinner/>}
+                                            {!isLoading ? "Senden" : <FaSpinner/>}
                                         </Button>
-                                        {success && <span className="text-sm text-accent">Your message has been sent successfully</span>}
-                                        {error && <span className="text-sm text-red-600">Something went wrong</span>}
+                                        {success && <span className="text-sm text-accent">Ihre Nachricht wurde erfolgreich gesendet.</span>}
+                                        {error && <span className="text-sm text-red-600">Etwas ist schiefgelaufen.</span>}
                                     </div>
-                                </> : <div className="xl:min-h-[60vh] flex justify-center items-center"><CircleLoader color="#00ff99"/></div>
+                                </> : <div className="xl:min-h-[60vh] flex justify-center items-center"><CircleLoader
+                                    color="#00ff99"/></div>
                             }
                         </form>
                     </div>

@@ -38,7 +38,7 @@ export default function Home() {
                             className="text-accent">App-Entwicklung</span>.
                         </span>
                         <div className="flex flex-col xl:flex-row items-center gap-8">
-                            <Link href="/lebenslauf.pdf">
+                            <Link href="/lebenslauf.pdf" target="_blank">
                                 <Button variant="outline" size="lg"
                                         className="uppercase flex items-center gap-2 duration-500">
                                     Lebenslauf herunterladen

@@ -17,11 +17,11 @@ export const Header = () => {
                 <div className="hidden xl:flex items-center gap-8">
                     <Nav />
 
-                    <Button variant="outline" size="md"
-                            className="uppercase flex items-center gap-2 duration-500">
+                    <Link href="/lebenslauf.pdf" target="_blank"><Button variant="outline" size="md"
+                               className="uppercase flex items-center gap-2 duration-500">
                         Download CV
                         <FiDownload className="text-xl"/>
-                    </Button>
+                    </Button></Link>
                 </div>
 
             {/*    mobile nav*/}

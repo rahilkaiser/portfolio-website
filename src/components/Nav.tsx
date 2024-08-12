@@ -9,10 +9,6 @@ const links = [
         name: "Über mich",
         path: "/"
     },
-    // {
-    //     name: "experience",
-    //     path: "/experience"
-    // },
     {
         name: "Erfahrungen",
         path: "/resume"

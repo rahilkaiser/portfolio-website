@@ -22,8 +22,23 @@ interface Project {
 }
 
 const projectList: Project[] = [
-    {
+        {
         num: '01',
+        category: 'Fullstack',
+        title: 'QuickEdit',
+        description: 'QuickEdit bietet die Möglichkeit effizient Bilder zu editieren. Es kann der Bildhintergrund entfernt, spezifische Elemente im Bild entfernt oder die Auflösung verbessert werden und vieles mehr.',
+        stack: [
+            {name: 'Next.js'},
+            {name: 'Tailwind.css'},
+            {name: 'Cloudinary'},
+            {name: 'MongoDB'},
+        ],
+        image: '/QuickEditThumb.png',
+        live: 'https://bild-edit.vercel.app/',
+        github: 'https://github.com/rahilkaiser/bild-edit.git',
+    },
+    {
+        num: '02',
         category: 'angular',
         title: 'Netflix Klon',
         description: 'Diese Anwendung ist ein Klon von Netflix, der entwickelt wurde, um Angular-Kenntnisse zu vertiefen und zu präsentieren. Das Projekt nutzt Angular in Kombination mit TailwindCSS und Bootstrap für das Styling. Die Anwendung bezieht Videodaten über die TMDB API.',
@@ -39,7 +54,7 @@ const projectList: Project[] = [
         github: 'https://github.com/rahilkaiser/angular-netflix-clone.git',
     },
     {
-        num: '02',
+        num: '03',
         category: 'Ecommerce Shop',
         title: 'NekoStore ',
         description: 'NekoStore ist ein E-Commerce-Shop, der Next.js, Tailwind CSS nutzt. Die Integration von Wix Studio Headless CMS ermöglicht eine einfache Verwaltung von Produkten, Benutzern und Inhalten. Benutzer können sich einloggen, Produkte durchsuchen und filtern.',
@@ -52,21 +67,7 @@ const projectList: Project[] = [
         live: 'https://nekostore.vercel.app/',
         github: 'https://github.com/rahilkaiser/nekostore.git',
     },
-    {
-        num: '03',
-        category: 'Fullstack',
-        title: 'QuickEdit',
-        description: 'QuickEdit bietet die Möglichkeit effizient Bilder zu editieren. Es önnen Hintergründe transparent gemacht, spezifische Elemente entfernt oder die Auflösung verbessert werden und vieles mehr.',
-        stack: [
-            {name: 'Next.js'},
-            {name: 'Tailwind.css'},
-            {name: 'Cloudinary'},
-            {name: 'MongoDB'},
-        ],
-        image: '/QuickEditThumb.png',
-        live: 'https://bild-edit.vercel.app/',
-        github: 'https://github.com/rahilkaiser/bild-edit.git',
-    },
+
 ];
 
 export default function Portfolio() {

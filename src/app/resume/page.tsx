@@ -10,7 +10,7 @@ import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@/compon
 const about = {
     title: 'Über mich',
     description: `Ich bin Rahil Kaiser, ein engagierter Softwareentwickler mit Erfahrung in der Fullstack-Entwicklung und App-Entwicklung. 
-    In meinen bisherigen Stellen wurde mir oft bestätigt, dass ich mich schnell und systematisch in komplexe Systeme einarbeite. Ich arbeite lösungsorientiert und bin stets bereit, meinen Beitrag bestmöglich zu leisten, was mir ein sehr gutes Verhältnis zu Kollegen und Vorgesetzten eingebracht hat`,
+    In meinen bisherigen Stellen wurde mir oft bestätigt, dass ich mich schnell und systematisch in komplexe Systeme einarbeite. Ich arbeite lösungsorientiert und bin stets bereit, meinen Beitrag bestmöglich zu leisten.`,
     info: [
         {
             fieldName: "Name",
@@ -195,7 +195,7 @@ export default function Resume() {
                         <TabsTrigger value="experience">Arbeitserfahrung</TabsTrigger>
                         <TabsTrigger value="education">Bildung</TabsTrigger>
                         <TabsTrigger value="skills">Kentnisse</TabsTrigger>
-                        <TabsTrigger value="about">Über mich</TabsTrigger>
+                        {/*<TabsTrigger value="about">Über mich</TabsTrigger>*/}
                     </TabsList>
 
                     <div className="min-h-[70vh] w-full">
@@ -302,25 +302,25 @@ export default function Resume() {
                             </motion.div>
                         </TabsContent>
                         {/*About me*/}
-                        <TabsContent value="about" className="w-full text-center xl:text-left">
-                            <motion.div
-                                initial={{opacity: 0}}
-                                animate={{opacity: 1}}
-                                transition={{delay: 0.2, duration: 0.4, ease: "easeIn"}}
-                                className="flex flex-col gap-[30px]">
-                                <h3 className="text-4xl font-bold">{about.title}</h3>
-                                <p className="text-white/60">{about.description}</p>
-                                <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-6 max-2-[620px] mx-auto xl:mx-0">
-                                    {about.info.map((item, index) => {
-                                        return <li key={index}
-                                                   className="flex items-center justify-center xl:justify-start gap-4">
-                                            <span className="text-white/60">{item.fieldName}</span>
-                                            <span className="text-xl">{item.fieldValue}</span>
-                                        </li>
-                                    })}
-                                </ul>
-                            </motion.div>
-                        </TabsContent>
+                        {/*<TabsContent value="about" className="w-full text-center xl:text-left">*/}
+                        {/*    <motion.div*/}
+                        {/*        initial={{opacity: 0}}*/}
+                        {/*        animate={{opacity: 1}}*/}
+                        {/*        transition={{delay: 0.2, duration: 0.4, ease: "easeIn"}}*/}
+                        {/*        className="flex flex-col gap-[30px]">*/}
+                        {/*        <h3 className="text-4xl font-bold">{about.title}</h3>*/}
+                        {/*        <p className="text-white/60">{about.description}</p>*/}
+                        {/*        <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-6 max-2-[620px] mx-auto xl:mx-0">*/}
+                        {/*            {about.info.map((item, index) => {*/}
+                        {/*                return <li key={index}*/}
+                        {/*                           className="flex items-center justify-center xl:justify-start gap-4">*/}
+                        {/*                    <span className="text-white/60">{item.fieldName}</span>*/}
+                        {/*                    <span className="text-xl">{item.fieldValue}</span>*/}
+                        {/*                </li>*/}
+                        {/*            })}*/}
+                        {/*        </ul>*/}
+                        {/*    </motion.div>*/}
+                        {/*</TabsContent>*/}
                     </div>
                 </Tabs>
             </div>
