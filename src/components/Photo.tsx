@@ -24,15 +24,18 @@ export const Photo = () => {
                         opacity: 1,
                         transition: {delay: 1.2, duration: 0.4, ease: "easeInOut",}
                     }}
-                    className="w-[298px] h-[298px] xl:w-[498px] xl:h-[498px] mix-blend-luminosity absolute">
+                    className="w-[298px] h-[298px] xl:w-[498px] xl:h-[498px]  absolute">
 
-                    <Image src="/RK BW.png"
+                    <Image src="/RK BW1.png"
                            alt={"Hero Image Software Entwicklung"}
                            priority
                            quality={100}
                            fill
                            className="object-contain rounded-full"
+
                     />
+                    <div
+                        className="absolute inset-0 rounded-full bg-gradient-to-t from-primary via-transparent to-transparent mix-blend-overlay"/>
                 </motion.div>
             </motion.div>
 

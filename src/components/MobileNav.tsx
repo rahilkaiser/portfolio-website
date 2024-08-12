@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const links = [
     {
-        name: "home",
+        name: "Über mich",
         path: "/"
     },
     // {
@@ -14,11 +14,11 @@ const links = [
     //     path: "/experience"
     // },
     {
-        name: "resume",
+        name: "Erfahrungen",
         path: "/resume"
     },
     {
-        name: "portfolio",
+        name: "Projekte",
         path: "/portfolio"
     },
     {

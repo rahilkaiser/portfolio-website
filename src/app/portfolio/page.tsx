@@ -24,44 +24,48 @@ interface Project {
 const projectList: Project[] = [
     {
         num: '01',
-        category: 'frontend',
-        title: 'project 1',
-        description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et just',
+        category: 'angular',
+        title: 'Netflix Klon',
+        description: 'Diese Anwendung ist ein Klon von Netflix, der entwickelt wurde, um Angular-Kenntnisse zu vertiefen und zu präsentieren. Das Projekt nutzt Angular in Kombination mit TailwindCSS und Bootstrap für das Styling. Die Anwendung bezieht Videodaten über die TMDB API.',
         stack: [
-            {name: 'Html 5'},
-            {name: 'Css 3'},
-            {name: 'Javascript'},
+            {name: 'Angular'},
+            {name: 'Tailwind.css'},
+            {name: 'Firebase'},
+            {name: 'TMDB API'},
+            {name: 'Bootstrap'},
         ],
-        image: '/ProThumb.jpg',
-        live: '',
-        github: '',
+        image: '/NetflixKlon.png',
+        live: 'https://master--angular-store-project.netlify.app',
+        github: 'https://github.com/rahilkaiser/angular-netflix-clone.git',
     },
     {
         num: '02',
-        category: 'fullstack',
-        title: 'project 1',
-        description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et just',
+        category: 'Ecommerce Shop',
+        title: 'NekoStore ',
+        description: 'NekoStore ist ein E-Commerce-Shop, der Next.js, Tailwind CSS nutzt. Die Integration von Wix Studio Headless CMS ermöglicht eine einfache Verwaltung von Produkten, Benutzern und Inhalten. Benutzer können sich einloggen, Produkte durchsuchen und filtern.',
         stack: [
             {name: 'Next.js'},
             {name: 'Tailwind.css'},
-            {name: 'Node.js'},
+            {name: 'Wix Studio Headless CMS'},
         ],
-        image: '/thumb2.jpg',
-        live: '',
-        github: '',
+        image: '/NekoStoreThumb1.png',
+        live: 'https://nekostore.vercel.app/',
+        github: 'https://github.com/rahilkaiser/nekostore.git',
     },
     {
         num: '03',
-        category: 'frontend',
-        title: 'project 1',
-        description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et just',
+        category: 'Fullstack',
+        title: 'QuickEdit',
+        description: 'QuickEdit bietet die Möglichkeit effizient Bilder zu editieren. Es önnen Hintergründe transparent gemacht, spezifische Elemente entfernt oder die Auflösung verbessert werden und vieles mehr.',
         stack: [
             {name: 'Next.js'},
             {name: 'Tailwind.css'},
+            {name: 'Cloudinary'},
+            {name: 'MongoDB'},
         ],
-        image: '/thumb3.png',
-        live: '',
-        github: '',
+        image: '/QuickEditThumb.png',
+        live: 'https://bild-edit.vercel.app/',
+        github: 'https://github.com/rahilkaiser/bild-edit.git',
     },
 ];
 
@@ -89,14 +93,15 @@ export default function Portfolio() {
             <div className="container mx-auto">
                 <div className="flex flex-col xl:flex-row xl:gap-[30px]">
                     <div
-                        className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
+                        className="w-full xl:w-[35%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
                         <div className="flex flex-col gap-[30px] h-[50%]">
                             <div className="text-8xl leading-none font-extrabold text-transparent text-outline">
                                 {selectedProject.num}
                             </div>
-                            <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">{selectedProject.category} project</h2>
+                            {/*<p className="text-white/60 uppercase">{selectedProject.category}</p>*/}
+                            <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize hover:text-accent cursor-pointer">{selectedProject.title}</h2>
                             <p className="text-white/60">{selectedProject.description}</p>
-                            <ul className="flex gap-4">
+                            <ul className="flex flex-wrap gap-4">
                                 {selectedProject.stack.map((item, i) => (
                                     <li key={i} className="text-xl text-accent">
                                         {item.name}
@@ -106,7 +111,7 @@ export default function Portfolio() {
                             </ul>
                             <div className="border border-white/20"></div>
                             <div className="flex items-center gap-4">
-                                <Link href={selectedProject.live}>
+                                <Link href={selectedProject.live} target="_blank">
                                     <TooltipProvider delayDuration={100}>
                                         <Tooltip>
                                             <TooltipTrigger
@@ -121,7 +126,7 @@ export default function Portfolio() {
                                     </TooltipProvider>
                                 </Link>
 
-                                <Link href={selectedProject.github}>
+                                <Link href={selectedProject.github} target="_blank">
                                     <TooltipProvider delayDuration={100}>
                                         <Tooltip>
                                             <TooltipTrigger
@@ -137,21 +142,21 @@ export default function Portfolio() {
                             </div>
                         </div>
                     </div>
-                    <div className="w-full xl:w-[50%]">
-                        <Swiper spaceBetween={30} slidesPerView={1} className="xl:h-[520px] mb-12"
+                    <div className="w-full xl:w-[65%]">
+                        <Swiper spaceBetween={30} slidesPerView={1} className="xl:h-[500px] mb-12"
                             onSlideChange={handleSlideChange}
                         >
                             {projectList.map((item, i) => (
                                 <SwiperSlide key={i} className="w-full">
-                                    <div className="h-[460px] relative group flex justify-center items-center bg-pink-50/20">
+                                    <div className="h-[400px] relative group flex justify-center items-center bg-pink-50/20">
                                         {/*Overlay*/}
                                         <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
                                     {/*    Image*/}
-                                        <div>
+                                        <div className="bg-transparent">
                                             <Image
                                                 src={item.image}
                                                 fill
-                                                className="object-cover"
+                                                className="object-cover bg-primary "
                                                 alt="" />
                                         </div>
 
