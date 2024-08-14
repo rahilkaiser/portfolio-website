@@ -45,12 +45,14 @@ export default function Home() {
                                     <FiDownload className="text-xl"/>
                                 </Button></Link>
                             <div className="mb-8 xl:mb-0">
+                                                            <Link href="https://github.com/rahilkaiser" target="_blank">
                                 <Button variant="outline" size="lg"
                                         className="uppercase flex items-center gap-2 duration-500">
                                     <FaGithub className="text-xl"/>
                                     Github
 
                                 </Button>
+                                                            </Link>
                             </div>
                         </div>
                         {/*    Button CTA and Socials*/}
