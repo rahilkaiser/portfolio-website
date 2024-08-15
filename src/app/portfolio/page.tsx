@@ -166,12 +166,12 @@ export default function Portfolio() {
                                                 alt=""
                                             />
                                             {/* Phone Image Overlay */}
-                                            <div className="absolute bottom-40 right-8 w-48 h-48">
+                                            <div className="absolute w-28 h-28 bottom-28 right-4 lg:bottom-40 lg:right-8 lg:w-48 lg:h-48">
                                                 <Image
                                                     src={item.phone}
                                                     layout="responsive"
-                                                    width={100}  // Adjust the width to fit your design
-                                                    height={100}  // Adjust the height to fit your design
+                                                    width={100}
+                                                    height={100}
                                                     className="object-contain"
                                                     alt="phone"
                                                 />
