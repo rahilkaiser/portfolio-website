@@ -17,12 +17,13 @@ interface Project {
     description: string;
     stack: { name: string }[];
     image: string;
+    phone: string;
     live: string;
     github: string;
 }
 
 const projectList: Project[] = [
-        {
+    {
         num: '01',
         category: 'Fullstack',
         title: 'QuickEdit',
@@ -33,7 +34,8 @@ const projectList: Project[] = [
             {name: 'Cloudinary'},
             {name: 'MongoDB'},
         ],
-        image: '/QuickEditThumb.png',
+        image: '/QuickEditMockup.png',
+        phone: "/QuickEditMockApple.png",
         live: 'https://bild-edit.vercel.app/',
         github: 'https://github.com/rahilkaiser/bild-edit.git',
     },
@@ -49,7 +51,8 @@ const projectList: Project[] = [
             {name: 'TMDB API'},
             {name: 'Bootstrap'},
         ],
-        image: '/NetflixKlon.png',
+        image: '/NetflixMockup.png',
+        phone: "/NetflixMockupApple.png",
         live: 'https://master--angular-store-project.netlify.app',
         github: 'https://github.com/rahilkaiser/angular-netflix-clone.git',
     },
@@ -63,7 +66,8 @@ const projectList: Project[] = [
             {name: 'Tailwind.css'},
             {name: 'Wix Studio Headless CMS'},
         ],
-        image: '/NekoStoreThumb1.png',
+        image: '/NekoStoreMockup.png',
+        phone: "/NekoMockApple.png",
         live: 'https://nekostore.vercel.app/',
         github: 'https://github.com/rahilkaiser/nekostore.git',
     },
@@ -73,7 +77,7 @@ const projectList: Project[] = [
 export default function Portfolio() {
     const [selectedProject, setSelectedProject] = useState<Project>(projectList[0]);
 
-    const handleSlideChange = (swiper:any) => {
+    const handleSlideChange = (swiper: any) => {
         const currentIndex = swiper.activeIndex;
         setSelectedProject(projectList[currentIndex!]);
     }
@@ -81,10 +85,10 @@ export default function Portfolio() {
     return (
         <motion.section
             initial={{
-                y:"-200vh"
+                y: "-200vh"
             }}
             animate={{
-                y:"0%"
+                y: "0%"
             }}
             transition={{
                 delay: 0.8, duration: 0.4,
@@ -143,31 +147,44 @@ export default function Portfolio() {
                             </div>
                         </div>
                     </div>
-                    <div className="w-full xl:w-[65%]">
-                        <Swiper spaceBetween={30} slidesPerView={1} className="xl:h-[500px] mb-12"
-                            onSlideChange={handleSlideChange}
+                    <div className="w-full xl:w-[65%] bg-transparent">
+                        <Swiper spaceBetween={30} slidesPerView={1} className="xl:h-[500px] mb-12 "
+                                onSlideChange={handleSlideChange}
                         >
                             {projectList.map((item, i) => (
                                 <SwiperSlide key={i} className="w-full">
-                                    <div className="h-[400px] relative group flex justify-center items-center bg-pink-50/20">
+                                    <div
+                                        className="h-[400px] relative group flex justify-center items-center bg-transparent ">
                                         {/*Overlay*/}
-                                        <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
-                                    {/*    Image*/}
-                                        <div className="bg-transparent">
+                                        <div className="absolute top-0 bottom-0 w-full h-full z-10"></div>
+                                        {/*    Image*/}
+                                        <div className="relative w-full h-full">
                                             <Image
                                                 src={item.image}
                                                 fill
-                                                className="object-cover bg-primary "
-                                                alt="" />
+                                                className="object-contain p-4"
+                                                alt=""
+                                            />
+                                            {/* Phone Image Overlay */}
+                                            <div className="absolute bottom-40 right-8 w-48 h-48">
+                                                <Image
+                                                    src={item.phone}
+                                                    layout="responsive"
+                                                    width={100}  // Adjust the width to fit your design
+                                                    height={100}  // Adjust the height to fit your design
+                                                    className="object-contain"
+                                                    alt="phone"
+                                                />
+                                            </div>
                                         </div>
-
                                     </div>
                                 </SwiperSlide>
                             ))}
-                        {/*    Slider Buttons*/}
-                            <PortfolioSliderButtons containerStyles="flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-between"
-                                                    iconStyles=""
-                                                    btnStyles="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all"/>
+                            {/*    Slider Buttons*/}
+                            <PortfolioSliderButtons
+                                containerStyles="flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-between"
+                                iconStyles=""
+                                btnStyles="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all"/>
                         </Swiper>
                     </div>
                 </div>
