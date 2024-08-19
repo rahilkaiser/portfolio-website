@@ -1,18 +1,17 @@
 "use client"
 import {Sheet, SheetClose, SheetContent, SheetTrigger} from "@/components/ui/sheet";
 import {CiMenuFries} from "react-icons/ci";
-import {usePathname} from "next/navigation";
+// import {usePathname} from "next/navigation";
 import Link from "next/link";
+import {useLocale} from "next-intl";
+import {useRouter, usePathname} from "@/navigation";
+import {useTransition} from "react";
 
 const links = [
     {
         name: "Über mich",
         path: "/"
     },
-    // {
-    //     name: "experience",
-    //     path: "/experience"
-    // },
     {
         name: "Erfahrungen",
         path: "/resume"
@@ -29,6 +28,40 @@ const links = [
 
 export const MobileNav = () => {
     const pathName = usePathname();
+    const locale = useLocale()
+
+    const router = useRouter();
+    const pathname = usePathname();
+    const [isPending, startTransition] = useTransition();
+
+    function onSelectChange(nextLocale:"de" | "en" | undefined) {
+
+        startTransition(() => {
+            router.replace(pathname, {
+                    locale: nextLocale
+                }
+            );
+        });
+    }
+
+    function getRealPathName(linkPath: string) {
+
+        const split = pathName.split("/")
+
+
+        if (split[split.length - 1] == linkPath.slice(1)) {
+            console.log(split[split.length - 1], "LINK")
+            return true;
+        } else if (split[split.length - 1] == locale && linkPath == "/") {
+            return true;
+        } else {
+            console.log(split[split.length - 1], "LINK")
+            return false;
+        }
+
+
+    }
+
     return (
         <Sheet>
             <SheetTrigger className="flex justify-center items-center">
@@ -47,9 +80,28 @@ export const MobileNav = () => {
                 <nav className="flex flex-col justify-center items-center gap-8">
                     {links.map((link, index) => (
                         <SheetClose key={index} asChild>
-                            <Link className={`${link.path === pathName && "text-accent border-b-2 border-accent"} text-xl capitalize hover:text-accent transition-all`}
-                            href={link.path} >{link.name}</Link></SheetClose>
+                            <Link
+                                className={`${getRealPathName(link.path) && "text-accent border-b-2 border-accent"} text-xl capitalize hover:text-accent transition-all`}
+                                href={link.path}>{link.name}</Link></SheetClose>
                     ))}
+
+                    <div className="flex gap-2">
+                        <span
+                            className={`${locale == "en" && "text-accent border-b-2 border-accent"} capitalize font-medium hover:text-accent `}
+                            onClick={() => {
+                                onSelectChange("en")
+                            }}>
+                            EN
+                        </span>
+                        |
+                        <span
+                            className={`${locale == "de" && "text-accent border-b-2 border-accent"} capitalize font-medium hover:text-accent `}
+                            onClick={() => {
+                                onSelectChange("de")
+                            }}>
+                            DE
+                        </span>
+                    </div>
                 </nav>
             </SheetContent>
         </Sheet>

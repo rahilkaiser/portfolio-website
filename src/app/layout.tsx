@@ -22,13 +22,6 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="de">
-        <body className={jetBrainsMono.variable}>
-        <Header/>
-        <PageTransition>
-            {children}
-        </PageTransition>
-        </body>
-        </html>
+        children
     );
 }

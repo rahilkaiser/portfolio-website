@@ -2,26 +2,29 @@
 
 
 import CountUp from "react-countup";
+import {useTranslations} from "next-intl";
 
 const stats = [
     {
         num: 2,
-        text: "Jahre an Berufserfahrung"
+        transKey: "statsYearsExperience"
     },
     {
         num: 5,
-        text: "Abgeschlossene Projekte"
+        transKey: "statsCompletedProjects"
     },
     {
         num: 4,
-        text: "Gemeisterte Technologien"
+        transKey: "statsMasteredTechnologies"
     },
     {
         num: 5,
-        text: "Jahre langfristiges Engagement"
+        transKey: "statsLongTermCommitment"
     },
 ]
 export const Stats = () => {
+    const trans = useTranslations('Home');
+
     return (
         <section className="pt-4 pb-12 xl:pt-0 xl:pb-0">
             <div className="container mx-auto">
@@ -34,7 +37,7 @@ export const Stats = () => {
                                 duration={5}
                                 delay={2}
                                 className="text-4xl xl:text-6xl font-extrabold"/>
-                            <p className={`${stat.text.length < 15 ? "max-w-[100px]" : "max-w-[150px]"} leading-snug text-white/80`}>{stat.text}</p>
+                            <p className={`${trans(stat.transKey).length < 15 ? "max-w-[100px]" : "max-w-[150px]"} leading-snug text-white/80`}>{trans(stat.transKey)}</p>
                         </div>
                     ))}
                 </div>

@@ -22,6 +22,7 @@
     "framer-motion": "^11.3.8",
     "lucide-react": "^0.411.0",
     "next": "14.2.3",
+    "next-intl": "^3.17.3",
     "react": "^18",
     "react-countup": "^6.5.3",
     "react-dom": "^18",
