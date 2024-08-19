@@ -45,7 +45,7 @@ export const Header = () => {
 
                     <div className="flex gap-2">
                         <span
-                            className={`${locale == "en" && "text-accent border-b-2 border-accent"} capitalize font-medium hover:text-accent `}
+                            className={`${locale == "en" && "text-accent border-b-2 border-accent"} cursor-pointer capitalize font-medium hover:text-accent `}
                             onClick={() => {
                                 onSelectChange("en")
                             }}>
@@ -53,7 +53,7 @@ export const Header = () => {
                         </span>
                         |
                         <span
-                            className={`${locale == "de" && "text-accent border-b-2 border-accent"} capitalize font-medium hover:text-accent `}
+                            className={`${locale == "de" && "text-accent border-b-2 border-accent"} cursor-pointer capitalize font-medium hover:text-accent `}
                             onClick={() => {
                                 onSelectChange("de")
                             }}>
