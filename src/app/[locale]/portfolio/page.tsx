@@ -9,12 +9,13 @@ import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
 import Image from "next/image";
 import {PortfolioSliderButtons} from "@/components/PortfolioSliderButtons";
+import {useTranslations} from "next-intl";
 
 interface Project {
     num: string;
-    category: string;
-    title: string;
-    description: string;
+    categoryTransKey: string;
+    titleTransKey: string;
+    descriptionTransKey: string;
     stack: { name: string }[];
     image: string;
     phone: string;
@@ -25,9 +26,9 @@ interface Project {
 const projectList: Project[] = [
     {
         num: '01',
-        category: 'Fullstack',
-        title: 'QuickEdit',
-        description: 'QuickEdit bietet die Möglichkeit effizient Bilder zu editieren. Es kann der Bildhintergrund entfernt, spezifische Elemente im Bild entfernt oder die Auflösung verbessert werden und vieles mehr.',
+        categoryTransKey: 'project1Category',
+        titleTransKey: 'project1Title',
+        descriptionTransKey: 'project1Description',
         stack: [
             {name: 'Next.js'},
             {name: 'Tailwind.css'},
@@ -41,9 +42,9 @@ const projectList: Project[] = [
     },
     {
         num: '02',
-        category: 'angular',
-        title: 'Netflix Klon',
-        description: 'Diese Anwendung ist ein Klon von Netflix, der entwickelt wurde, um Angular-Kenntnisse zu vertiefen und zu präsentieren. Das Projekt nutzt Angular in Kombination mit TailwindCSS und Bootstrap für das Styling. Die Anwendung bezieht Videodaten über die TMDB API.',
+        categoryTransKey: 'project2Category',
+        titleTransKey: 'project2Title',
+        descriptionTransKey: 'project2Description',
         stack: [
             {name: 'Angular'},
             {name: 'Tailwind.css'},
@@ -58,9 +59,9 @@ const projectList: Project[] = [
     },
     {
         num: '03',
-        category: 'Ecommerce Shop',
-        title: 'NekoStore ',
-        description: 'NekoStore ist ein E-Commerce-Shop, der Next.js, Tailwind CSS nutzt. Die Integration von Wix Studio Headless CMS ermöglicht eine einfache Verwaltung von Produkten, Benutzern und Inhalten. Benutzer können sich einloggen, Produkte durchsuchen und filtern.',
+        categoryTransKey: 'project3Category',
+        titleTransKey: 'project3Title',
+        descriptionTransKey: 'project3Description',
         stack: [
             {name: 'Next.js'},
             {name: 'Tailwind.css'},
@@ -81,6 +82,8 @@ export default function Portfolio() {
         const currentIndex = swiper.activeIndex;
         setSelectedProject(projectList[currentIndex!]);
     }
+
+    const trans = useTranslations('Portfolio');
 
     return (
         <motion.section
@@ -104,8 +107,10 @@ export default function Portfolio() {
                                 {selectedProject.num}
                             </div>
                             {/*<p className="text-white/60 uppercase">{selectedProject.category}</p>*/}
-                            <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize hover:text-accent cursor-pointer">{selectedProject.title}</h2>
-                            <p className="text-white/60">{selectedProject.description}</p>
+                            <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize hover:text-accent cursor-pointer">
+                                {trans(selectedProject.titleTransKey)}
+                            </h2>
+                            <p className="text-white/60">{trans(selectedProject.descriptionTransKey)}</p>
                             <ul className="flex flex-wrap gap-4">
                                 {selectedProject.stack.map((item, i) => (
                                     <li key={i} className="text-xl text-accent">

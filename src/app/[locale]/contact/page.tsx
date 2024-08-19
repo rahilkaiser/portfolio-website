@@ -9,6 +9,7 @@ import {Button} from "@/components/ui/button";
 import {useRef, useState} from "react";
 import emailjs from '@emailjs/browser';
 import {CircleLoader} from "react-spinners";
+import {useTranslations} from "next-intl";
 
 const info = [
     {
@@ -33,6 +34,8 @@ export default function Contact() {
     const [isLoading, setIsLoading] = useState(false);
 
     const form: any = useRef(null);
+
+    const trans = useTranslations('Contact');
 
     const sendEmail = (e: any) => {
         e.preventDefault();
@@ -80,30 +83,30 @@ export default function Contact() {
                         <form onSubmit={sendEmail} ref={form}
                               className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl ">
                             {!isLoading ?
-                                <> <h3 className="text-4xl text-accent">Lassen Sie uns gemeinsam etwas bewegen</h3>
+                                <> <h3 className="text-4xl text-accent">{trans('title')}</h3>
                                     <p className="text-white/60">
-                                        Ich freue mich darauf, meine Stärken in Ihrem Team einzubringen. Wenn Sie
-                                        Interesse an einer Zusammenarbeit haben, kontaktieren Sie mich gerne über das
-                                        Formular. Ich freue mich auf Ihre Nachricht.
+                                        {trans('description')}
                                     </p>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                        <Input type="firstname" placeholder="Vorname" name="from_forename"/>
-                                        <Input type="lastname" placeholder="Nachname" name="from_lastname"/>
-                                        <Input type="email" placeholder="Email-Adresse" name="email"/>
-                                        <Input type="phone" placeholder="Telefonnummer" name="phone"/>
+                                        <Input type="firstname" placeholder={trans('firstNamePlaceholder')} name="from_forename"/>
+                                        <Input type="lastname" placeholder={trans('lastNamePlaceholder')} name="from_lastname"/>
+                                        <Input type="email" placeholder={trans('emailPlaceholder')} name="email"/>
+                                        <Input type="phone" placeholder={trans('phonePlaceholder')} name="phone"/>
                                     </div>
 
                                     <Textarea className="h-[200px]"
-                                              placeholder="Nachricht schreiben"
+                                              placeholder={trans('messagePlaceholder')}
                                               name="message"
                                     />
 
                                     <div className="flex items-center gap-4">
                                         <Button type="submit" size="md" className="max-w-40">
-                                            {!isLoading ? "Senden" : <FaSpinner/>}
+                                            {!isLoading ? trans('sendButton') : <FaSpinner/>}
                                         </Button>
-                                        {success && <span className="text-sm text-accent">Ihre Nachricht wurde erfolgreich gesendet.</span>}
-                                        {error && <span className="text-sm text-red-600">Etwas ist schiefgelaufen.</span>}
+                                        {success &&
+                                            <span className="text-sm text-accent">{trans('successMessage')}</span>}
+                                        {error &&
+                                            <span className="text-sm text-red-600">{trans('errorMessage')}</span>}
                                     </div>
                                 </> : <div className="xl:min-h-[60vh] flex justify-center items-center"><CircleLoader
                                     color="#00ff99"/></div>
@@ -121,7 +124,7 @@ export default function Contact() {
                                         <div className="text-[28px]">{item.icon}</div>
                                     </div>
                                     <div className="flex-1">
-                                        <p className="text-white/60">{item.title}</p>
+                                        <p className="text-white/60">{trans(`info${index + 1}Title`)}</p>
                                         <h3 className="text-xl">{item.description}</h3>
                                     </div>
                                 </li>

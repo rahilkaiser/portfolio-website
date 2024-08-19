@@ -6,6 +6,7 @@ import {SiFlutter, SiNextdotjs, SiTailwindcss, SiTypescript} from "react-icons/s
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs";
 import {ScrollArea} from "@/components/ui/scroll-area";
 import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@/components/ui/tooltip";
+import {useTranslations} from "next-intl";
 
 const about = {
     title: 'Über mich',
@@ -153,7 +154,7 @@ const skills = {
             ],
         },
         {
-            category: "Tools & Technologien",
+            category: "Tools",
             skillList: [
                 {
                     icon: <FaGit/>,
@@ -171,6 +172,10 @@ const skills = {
 }
 
 export default function Resume() {
+
+    const trans = useTranslations('Resume');
+
+
     return (
         <motion.div
             initial={{
@@ -187,9 +192,9 @@ export default function Resume() {
             <div className="container mx-auto">
                 <Tabs defaultValue="experience" className="flex flex-col xl:flex-row gap-[60px]">
                     <TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6">
-                        <TabsTrigger value="experience">Arbeitserfahrung</TabsTrigger>
-                        <TabsTrigger value="education">Bildung</TabsTrigger>
-                        <TabsTrigger value="skills">Kentnisse</TabsTrigger>
+                        <TabsTrigger value="experience">{trans('experienceTitle')}</TabsTrigger>
+                        <TabsTrigger value="education">{trans('educationTitle')}</TabsTrigger>
+                        <TabsTrigger value="skills">{trans('skillsTitle')}</TabsTrigger>
                         {/*<TabsTrigger value="about">Über mich</TabsTrigger>*/}
                     </TabsList>
 
@@ -199,10 +204,10 @@ export default function Resume() {
                             <div
                                 className="flex flex-col gap-[30px] text-center xl:text-left">
                                 <h3 className="text-4xl font-bold">
-                                    {experience.title}
+                                    {trans('experienceTitle')}
                                 </h3>
                                 <p className="text-white/60">
-                                    {experience.description}
+                                    {trans('experienceDescription')}
                                 </p>
                                 <ScrollArea className="h-[400px]">
                                     <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
@@ -210,10 +215,10 @@ export default function Resume() {
                                             return <li key={index}
                                                        className="bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1">
                                                 <span className="text-accent">{item.duration}</span>
-                                                <h3 className="text-xl max-w--[260px] min-h-[60px] text-center lg:text-left">{item.position}</h3>
+                                                <h3 className="text-xl max-w--[260px] min-h-[60px] text-center lg:text-left">{trans(`experience${index + 1}Position`)}</h3>
                                                 <div className="flex items-center gap-3">
                                                     <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
-                                                    <p>{item.company}</p>
+                                                    <p>{trans(`experience${index + 1}Company`)}</p>
                                                 </div>
                                             </li>
                                         })}
@@ -229,10 +234,10 @@ export default function Resume() {
                                 transition={{delay: 0.2, duration: 0.4, ease: "easeIn"}}
                                 className="flex flex-col gap-[30px] text-center xl:text-left">
                                 <h3 className="text-4xl font-bold">
-                                    {education.title}
+                                    {trans('educationTitle')}
                                 </h3>
                                 <p className="text-white/60">
-                                    {education.description}
+                                    {trans('educationDescription')}
                                 </p>
                                 <ScrollArea className="h-[400px]">
                                     <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
@@ -240,10 +245,10 @@ export default function Resume() {
                                             return <li key={index}
                                                        className="bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1">
                                                 <span className="text-accent">{item.duration}</span>
-                                                <h3 className="text-xl max-w--[260px] min-h-[60px] text-center lg:text-left">{item.degree}</h3>
+                                                <h3 className="text-xl max-w--[260px] min-h-[60px] text-center lg:text-left">{trans(`education${index + 1}Degree`)}</h3>
                                                 <div className="flex items-center gap-3">
                                                     <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
-                                                    <p>{item.institution}</p>
+                                                    <p>{trans(`education${index + 1}Institution`)}</p>
                                                 </div>
                                             </li>
                                         })}
@@ -261,15 +266,15 @@ export default function Resume() {
                                 transition={{delay: 0.2, duration: 0.4, ease: "easeIn"}}
                                 className="flex flex-col gap-[30px] text-center xl:text-left">
                                 <div className="flex flex-col gap-[30px]">
-                                    <h3 className="text-4xl font-bold">{skills.title}</h3>
-                                    <p className="text-white/60">{skills.description}</p>
+                                    <h3 className="text-4xl font-bold">{trans('skillsTitle')}</h3>
+                                    <p className="text-white/60">{trans('skillsDescription')}</p>
                                 </div>
 
                                 <div >
                                     {skills.skillCategories.map((category, catIndex) => (
                                         <div key={catIndex}
                                              className="flex flex-col justify-center items-center text-center xl:text-left xl:justify-start xl:items-start">
-                                            <h3 className="text-lg font-bold mb-4">{category.category}</h3>
+                                            <h3 className="text-lg font-bold mb-4">{trans(`skills${category.category}`)}</h3>
                                             <ul className="flex flex-wrap justify-center items-center max-w-[400px] xl:flex-row xl:justify-start xl:items-start xl:max-w-none">
                                                 {category.skillList.map((skill, index) => (
                                                     <li key={index}>
@@ -283,7 +288,7 @@ export default function Resume() {
                                                                     </div>
                                                                 </TooltipTrigger>
                                                                 <TooltipContent>
-                                                                    <p className="capitalize">{skill.name}</p>
+                                                                    <p className="capitalize">{trans(`skill${skill.name}`)}</p>
                                                                 </TooltipContent>
                                                             </Tooltip>
                                                         </TooltipProvider>
