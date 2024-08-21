@@ -3,25 +3,25 @@ import {Sheet, SheetClose, SheetContent, SheetTrigger} from "@/components/ui/she
 import {CiMenuFries} from "react-icons/ci";
 // import {usePathname} from "next/navigation";
 import Link from "next/link";
-import {useLocale} from "next-intl";
+import {useLocale, useTranslations} from "next-intl";
 import {useRouter, usePathname} from "@/navigation";
 import {useTransition} from "react";
 
 const links = [
     {
-        name: "Über mich",
+        transKey: "about",
         path: "/"
     },
     {
-        name: "Erfahrungen",
+        transKey: "experience",
         path: "/resume"
     },
     {
-        name: "Projekte",
+        transKey: "projects",
         path: "/portfolio"
     },
     {
-        name: "Kontakt",
+        transKey: "contact",
         path: "/contact"
     }
 ]
@@ -33,6 +33,8 @@ export const MobileNav = () => {
     const router = useRouter();
     const pathname = usePathname();
     const [isPending, startTransition] = useTransition();
+
+    const trans = useTranslations("Nav");
 
     function onSelectChange(nextLocale:"de" | "en" | undefined) {
 
@@ -82,7 +84,7 @@ export const MobileNav = () => {
                         <SheetClose key={index} asChild>
                             <Link
                                 className={`${getRealPathName(link.path) && "text-accent border-b-2 border-accent"} text-xl capitalize hover:text-accent transition-all`}
-                                href={link.path}>{link.name}</Link></SheetClose>
+                                href={link.path}>{trans(link.transKey)}</Link></SheetClose>
                     ))}
 
                     <div className="flex gap-2">

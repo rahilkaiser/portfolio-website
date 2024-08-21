@@ -27,7 +27,7 @@ const links = [
 export const Nav = () => {
         const pathName = usePathname();
         const locale = useLocale()
-        const trans = useTranslations();
+        const trans = useTranslations("Nav");
 
         function getRealPathName(linkPath: string) {
 
