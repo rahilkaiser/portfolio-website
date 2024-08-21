@@ -8,11 +8,12 @@ import {motion} from "framer-motion";
 import {Github, GithubIcon} from "lucide-react";
 import {FaGithub} from "react-icons/fa";
 import Link from "next/link";
-import {useTranslations} from "next-intl";
+import {useLocale, useTranslations} from "next-intl";
 
 export default function Home() {
 
     const trans = useTranslations('Home');
+    const locale = useLocale();
 
     return (
         <motion.section
@@ -42,7 +43,7 @@ export default function Home() {
                             className="text-accent">{trans("heroHighlight2")}</span>.
                         </span>
                         <div className="flex flex-col xl:flex-row items-center gap-8">
-                            <Link href="/lebenslauf.pdf" target="_blank">
+                            <Link href={locale == "de" ? "/lebenslauf.pdf" :"/resume.pdf" } target="_blank">
                                 <Button variant="outline" size="lg"
                                         className="uppercase flex items-center gap-2 duration-500">
                                     {trans("resumeButton")}

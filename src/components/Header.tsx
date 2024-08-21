@@ -37,7 +37,7 @@ export const Header = () => {
                 <div className="hidden xl:flex items-center gap-8">
                     <Nav/>
 
-                    <Link href="/lebenslauf.pdf" target="_blank"><Button variant="outline" size="md"
+                    <Link href={locale == "de" ? "/lebenslauf.pdf" :"/resume.pdf" } target="_blank"><Button variant="outline" size="md"
                                                                          className="uppercase flex items-center gap-2 duration-500">
                         Download CV
                         <FiDownload className="text-xl"/>
