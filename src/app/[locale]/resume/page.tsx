@@ -19,7 +19,7 @@ const about = {
         },
         {
             fieldName: "Telefon",
-            fieldValue: "(+49) 375 28578228"
+            fieldValue: "(+49) 178 577 4742"
         },
         {
             fieldName: "E-Mail",
@@ -49,7 +49,7 @@ const experience = {
     items: [
         {
             company: "IBYKUS AG",
-            position: "Full Stack Entwickler",
+            position: "Software Entwickler",
             duration: "08.2022 - 08.2023"
         },
         {
