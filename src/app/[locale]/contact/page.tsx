@@ -2,7 +2,7 @@
 
 import {Input} from "@/components/ui/input";
 import {motion} from "framer-motion";
-import {FaEnvelope, FaMapMarkerAlt, FaPhoneAlt, FaSpinner} from "react-icons/fa";
+import {FaEnvelope, FaMapMarkerAlt, FaMobile, FaPhoneAlt, FaSpinner} from "react-icons/fa";
 
 import {Textarea} from "@/components/ui/textarea";
 import {Button} from "@/components/ui/button";
@@ -10,12 +10,13 @@ import {useRef, useState} from "react";
 import emailjs from '@emailjs/browser';
 import {CircleLoader} from "react-spinners";
 import {useTranslations} from "next-intl";
+import {FaMobileRetro} from "react-icons/fa6";
 
 const info = [
     {
         icon: <FaPhoneAlt/>,
-        title: "Telefon",
-        description: "+49 375 285 78228",
+        title: "Mobil",
+        description: "+49 178 577 4742",
     },
     {
         icon: <FaEnvelope/>,
@@ -88,8 +89,10 @@ export default function Contact() {
                                         {trans('description')}
                                     </p>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                        <Input type="firstname" placeholder={trans('firstNamePlaceholder')} name="from_forename"/>
-                                        <Input type="lastname" placeholder={trans('lastNamePlaceholder')} name="from_lastname"/>
+                                        <Input type="firstname" placeholder={trans('firstNamePlaceholder')}
+                                               name="from_forename"/>
+                                        <Input type="lastname" placeholder={trans('lastNamePlaceholder')}
+                                               name="from_lastname"/>
                                         <Input type="email" placeholder={trans('emailPlaceholder')} name="email"/>
                                         <Input type="phone" placeholder={trans('phonePlaceholder')} name="phone"/>
                                     </div>
