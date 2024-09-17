@@ -74,7 +74,9 @@
     "project2Description": "Diese Anwendung ist ein Klon von Netflix, der entwickelt wurde, um Angular-Kenntnisse zu vertiefen und zu präsentieren. Das Projekt nutzt Angular in Kombination mit TailwindCSS und Bootstrap für das Styling. Die Anwendung bezieht Videodaten über die TMDB API.",
     "project3Category": "Ecommerce Shop",
     "project3Title": "NekoStore",
-    "project3Description": "NekoStore ist ein E-Commerce-Shop, der Next.js, Tailwind CSS nutzt. Die Integration von Wix Studio Headless CMS ermöglicht eine einfache Verwaltung von Produkten, Benutzern und Inhalten. Benutzer können sich einloggen, Produkte durchsuchen und filtern."
+    "project3Description": "NekoStore ist ein E-Commerce-Shop, der Next.js, Tailwind CSS nutzt. Die Integration von Wix Studio Headless CMS ermöglicht eine einfache Verwaltung von Produkten, Benutzern und Inhalten. Benutzer können sich einloggen, Produkte durchsuchen und filtern.",
+    "viewProject": "Projekt ansehen",
+    "githubRepository": "GitHub"
   },
   "Contact": {
     "title": "Lassen Sie uns gemeinsam etwas bewegen",
