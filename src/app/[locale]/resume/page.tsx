@@ -368,9 +368,15 @@ export default function Resume() {
 
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
+    initial={{
+        y: "-200vh"
+    }}
+    animate={{
+        y: "0%"
+    }}
+    transition={{
+        delay: 0.8, duration: 0.4,
+    }}
       className="min-h-screen bg-primary text-white py-8 px-4 sm:py-12 sm:px-6 lg:px-8"
     >
       <div className="max-w-7xl mx-auto">
