@@ -43,7 +43,7 @@ export default function Home() {
                             className="text-accent">{trans("heroHighlight2")}</span>.
                         </span>
                         <div className="flex flex-col xl:flex-row items-center gap-8">
-                            <Link href={locale == "de" ? "/lebenslauf.pdf" :"/resume.pdf" } target="_blank">
+                            <Link href={locale == "de" ? "/lebenslauf.pdf" :"/lebenslauf.pdf" } target="_blank">
                                 <Button variant="outline" size="lg"
                                         className="uppercase flex items-center gap-2 duration-500">
                                     {trans("resumeButton")}
