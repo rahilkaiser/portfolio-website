@@ -34,45 +34,45 @@ import {
 import { useTranslations } from "next-intl";
 import { useRef } from "react";
 
-const about = {
-  title: "Über mich",
-  description: `Ich bin Rahil Kaiser, ein engagierter Softwareentwickler mit Erfahrung in der Fullstack-Entwicklung und App-Entwicklung. 
-    In meinen bisherigen Stellen wurde mir oft bestätigt, dass ich mich schnell und systematisch in komplexe Systeme einarbeite. Ich arbeite lösungsorientiert und bin stets bereit, meinen Beitrag bestmöglich zu leisten.`,
-  info: [
-    {
-      fieldName: "Name",
-      fieldValue: "Rahil Kaiser",
-    },
-    {
-      fieldName: "Telefon",
-      fieldValue: "(+49) 178 577 4742",
-    },
-    {
-      fieldName: "E-Mail",
-      fieldValue: "kaiser.rahil@gmail.com",
-    },
-    {
-      fieldName: "Nationalität",
-      fieldValue: "Ukraine / Pakistan",
-    },
-    {
-      fieldName: "Verfügbarkeit",
-      fieldValue: "Sofort verfügbar",
-    },
-    {
-      fieldName: "Sprachen",
-      fieldValue: "Deutsch, Englisch, Russisch",
-    },
-  ],
-};
+// const about = {
+//   title: "Über mich",
+//   description: `Ich bin Rahil Kaiser, ein engagierter Softwareentwickler mit Erfahrung in der Fullstack-Entwicklung und App-Entwicklung. 
+//     In meinen bisherigen Stellen wurde mir oft bestätigt, dass ich mich schnell und systematisch in komplexe Systeme einarbeite. Ich arbeite lösungsorientiert und bin stets bereit, meinen Beitrag bestmöglich zu leisten.`,
+//   info: [
+//     {
+//       fieldName: "Name",
+//       fieldValue: "Rahil Kaiser",
+//     },
+//     {
+//       fieldName: "Telefon",
+//       fieldValue: "(+49) 178 577 4742",
+//     },
+//     {
+//       fieldName: "E-Mail",
+//       fieldValue: "kaiser.rahil@gmail.com",
+//     },
+//     {
+//       fieldName: "Nationalität",
+//       fieldValue: "Ukraine / Pakistan",
+//     },
+//     {
+//       fieldName: "Verfügbarkeit",
+//       fieldValue: "Sofort verfügbar",
+//     },
+//     {
+//       fieldName: "Sprachen",
+//       fieldValue: "Deutsch, Englisch, Russisch",
+//     },
+//   ],
+// };
 
 // Experience Data
 
 const experience = {
   icon: "",
   title: "Meine Erfahrungen",
-  description:
-    "Über die letzten Jahre habe ich in verschiedenen Rollen als Full-Stack-Entwickler gearbeitet und dabei umfassende Erfahrungen in der Softwareentwicklung gesammelt. Meine Tätigkeiten umfassten die Entwicklung von Web- und Cloud-basierten Anwendungen, die Wartung und Verbesserung bestehender Systeme sowie die Betreuung von Sicherheits- und Überwachungssystemen.",
+//   description:
+//     "Über die letzten Jahre habe ich in verschiedenen Rollen als Full-Stack-Entwickler gearbeitet und dabei umfassende Erfahrungen in der Softwareentwicklung gesammelt. Meine Tätigkeiten umfassten die Entwicklung von Web- und Cloud-basierten Anwendungen, die Wartung und Verbesserung bestehender Systeme sowie die Betreuung von Sicherheits- und Überwachungssystemen.",
   items: [
     {
       company: "Freelancer",
@@ -196,79 +196,46 @@ const education = {
 
 const skills = {
   title: "Meine Fähigkeiten",
-  description:
-    "Erfahren in modernen Webtechnologien und Frameworks mit einem starken Fokus auf Frontend- und Full-Stack-Entwicklung.",
+  description: "Erfahren in modernen Webtechnologien und Frameworks mit einem starken Fokus auf Frontend- und Full-Stack-Entwicklung.",
   skillCategories: [
     {
       category: "Frontend",
       skillList: [
-        {
-          icon: <FaHtml5 />,
-          name: "HTML 5",
-        },
-        {
-          icon: <FaCss3 />,
-          name: "CSS 3",
-        },
-        {
-          icon: <SiTailwindcss />,
-          name: "Tailwind CSS",
-        },
-        {
-          icon: <FaJs />,
-          name: "JavaScript",
-        },
-        {
-          icon: <SiTypescript />,
-          name: "TypeScript",
-        },
-        {
-          icon: <FaReact />,
-          name: "React.js",
-        },
-        {
-          icon: <SiNextdotjs />,
-          name: "Next.js",
-        },
-        {
-          icon: <FaAngular />,
-          name: "Angular",
-        },
+        { name: "HTML 5", level: 90 },
+        { name: "CSS 3", level: 85 },
+        { name: "JavaScript", level: 90 },
+        { name: "TypeScript", level: 85 },
+        { name: "React.js", level: 80 },
+        { name: "Next.js", level: 75 },
+        { name: "Angular", level: 70 },
       ],
     },
     {
       category: "Backend",
       skillList: [
-        {
-          icon: <FaSymfony />,
-          name: "Symfony",
-        },
-        {
-          icon: <FaPhp />,
-          name: "PHP",
-        },
+        { name: "Node.js", level: 80 },
+        { name: "Express.js", level: 75 },
+        { name: "PHP", level: 70 },
+        { name: "Symfony", level: 65 },
+        { name: "RESTful APIs", level: 80 },
+        { name: "GraphQL", level: 60 },
+        { name: "Python", level: 70 },
       ],
     },
     {
-      category: "Mobile",
+      category: "Datenbanken",
       skillList: [
-        {
-          icon: <SiFlutter />,
-          name: "Flutter",
-        },
+        { name: "MySQL", level: 80 },
+        { name: "MongoDB", level: 75 },
+        { name: "PostgreSQL", level: 70 },
       ],
     },
     {
-      category: "Tools",
+      category: "Tools & Technologien",
       skillList: [
-        {
-          icon: <FaGit />,
-          name: "Git",
-        },
-        {
-          icon: <FaDocker />,
-          name: "Docker",
-        },
+        { name: "Git", level: 85 },
+        { name: "Docker", level: 70 },
+
       ],
     },
   ],
@@ -377,6 +344,28 @@ export default function Resume() {
     </motion.div>
   );
 
+  const SkillBar = ({ skill, level }: { skill: string; level: number }) => (
+    <motion.div 
+      className="mb-4"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className="flex justify-between mb-1">
+        <span className="text-sm font-medium text-white">{skill}</span>
+        <span className="text-sm font-medium text-white">{level}%</span>
+      </div>
+      <div className="w-full bg-gray-700 rounded-full h-2.5">
+        <motion.div 
+          className="bg-accent h-2.5 rounded-full"
+          initial={{ width: 0 }}
+          animate={{ width: `${level}%` }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        />
+      </div>
+    </motion.div>
+  );
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -426,36 +415,23 @@ export default function Resume() {
               }}
               initial="hidden"
               animate="visible"
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
+              className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12"
             >
               {skills.skillCategories.map((category, catIndex) => (
                 <motion.div
                   key={catIndex}
-                  variants={cardVariants}
-                  className="bg-[#232329] p-4 md:p-6 rounded-lg shadow-lg"
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0 },
+                  }}
+                  className="bg-[#232329] p-6 rounded-lg shadow-lg"
                 >
-                  <h3 className="text-lg md:text-xl font-bold mb-4 text-accent">
+                  <h3 className="text-xl font-bold mb-6 text-accent border-b border-accent pb-2">
                     {trans(`skills${category.category}`)}
                   </h3>
-                  <div className="grid grid-cols-3 gap-3 md:gap-4">
+                  <div className="space-y-4">
                     {category.skillList.map((skill, index) => (
-                      <TooltipProvider key={index}>
-                        <Tooltip>
-                          <TooltipTrigger>
-                            <motion.div
-                              whileHover={{ scale: 1.1 }}
-                              className="flex flex-col items-center"
-                            >
-                              <div className="text-2xl md:text-3xl mb-1 md:mb-2">
-                                {skill.icon}
-                              </div>
-                            </motion.div>
-                          </TooltipTrigger>
-                          <TooltipContent>
-                            <p>{trans(`skill${skill.name}`)}</p>
-                          </TooltipContent>
-                        </Tooltip>
-                      </TooltipProvider>
+                      <SkillBar key={index} skill={skill.name} level={skill.level} />
                     ))}
                   </div>
                 </motion.div>
