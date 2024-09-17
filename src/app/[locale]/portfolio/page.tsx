@@ -98,103 +98,79 @@ export default function Portfolio() {
             }}
             className="min-h-[80vh] flex flex-col justify-center py-12 xl:px-0"
         >
-            <div className="container mx-auto">
-                <div className="flex flex-col xl:flex-row xl:gap-[30px]">
-                    <div
-                        className="w-full xl:w-[35%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
-                        <div className="flex flex-col gap-[30px] h-[50%]">
-                            <div className="text-8xl leading-none font-extrabold text-transparent text-outline">
-                                {selectedProject.num}
-                            </div>
-                            {/*<p className="text-white/60 uppercase">{selectedProject.category}</p>*/}
-                            <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize hover:text-accent cursor-pointer">
-                                {trans(selectedProject.titleTransKey)}
-                            </h2>
-                            <p className="text-white/60">{trans(selectedProject.descriptionTransKey)}</p>
-                            <ul className="flex flex-wrap gap-4">
-                                {selectedProject.stack.map((item, i) => (
-                                    <li key={i} className="text-xl text-accent">
-                                        {item.name}
-                                        {i !== selectedProject.stack.length - 1 && ","}
-                                    </li>
-                                ))}
-                            </ul>
-                            <div className="border border-white/20"></div>
-                            <div className="flex items-center gap-4">
-                                <Link href={selectedProject.live} target="_blank">
-                                    <TooltipProvider delayDuration={100}>
-                                        <Tooltip>
-                                            <TooltipTrigger
-                                                className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                                                <BsArrowUpRight
-                                                    className="text-white text-3xl group-hover:text-accent"/>
-                                            </TooltipTrigger>
-                                            <TooltipContent>
-                                                <p>Live project</p>
-                                            </TooltipContent>
-                                        </Tooltip>
-                                    </TooltipProvider>
-                                </Link>
 
-                                <Link href={selectedProject.github} target="_blank">
-                                    <TooltipProvider delayDuration={100}>
-                                        <Tooltip>
-                                            <TooltipTrigger
-                                                className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                                                <BsGithub className="text-white text-3xl group-hover:text-accent"/>
-                                            </TooltipTrigger>
-                                            <TooltipContent>
-                                                <p>Github repository</p>
-                                            </TooltipContent>
-                                        </Tooltip>
-                                    </TooltipProvider>
-                                </Link>
-                            </div>
-                        </div>
+        <div className="container mx-auto px-4 text-white">
+          {projectList.map((project, index) => (
+            <motion.div 
+              key={project.num}
+              className={`relative flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} lg:py-12 mb-20`}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+            >
+              <div className="w-full lg:w-1/2 relative overflow-hidden group">
+                <Link href={project.live} target="_blank" rel="noopener noreferrer">
+                  <Image 
+                    src={project.image} 
+                    alt={trans(project.titleTransKey)} 
+                    width={800} 
+                    height={500} 
+                    className="rounded-lg transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-accent bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 flex items-center justify-center">
+                    <div className="text-primary text-center opacity-0 group-hover:opacity-100 max-w-[240px] transition-opacity duration-300">
+                      <div className="flex flex-wrap justify-center gap-2">
+                        {project.stack.map((tech, techIndex) => (
+                          <span key={techIndex} className="bg-primary text-accent px-2 py-1 rounded-sm text-xs">
+                            {tech.name}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                    <div className="w-full xl:w-[65%] bg-transparent">
-                        <Swiper spaceBetween={30} slidesPerView={1} className="xl:h-[500px] mb-12 "
-                                onSlideChange={handleSlideChange}
-                        >
-                            {projectList.map((item, i) => (
-                                <SwiperSlide key={i} className="w-full">
-                                    <div
-                                        className="h-[400px] relative group flex justify-center items-center bg-transparent ">
-                                        {/*Overlay*/}
-                                        <div className="absolute top-0 bottom-0 w-full h-full z-10"></div>
-                                        {/*    Image*/}
-                                        <div className="relative w-full h-full">
-                                            <Image
-                                                src={item.image}
-                                                fill
-                                                className="object-contain p-4"
-                                                alt=""
-                                            />
-                                            {/* Phone Image Overlay */}
-                                            <div className="absolute w-28 h-28 bottom-28 right-4 lg:bottom-40 lg:right-8 lg:w-48 lg:h-48">
-                                                <Image
-                                                    src={item.phone}
-                                                    layout="responsive"
-                                                    width={100}
-                                                    height={100}
-                                                    className="object-contain"
-                                                    alt="phone"
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </SwiperSlide>
-                            ))}
-                            {/*    Slider Buttons*/}
-                            <PortfolioSliderButtons
-                                containerStyles="flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-between"
-                                iconStyles=""
-                                btnStyles="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all"/>
-                        </Swiper>
-                    </div>
+                  </div>
+                </Link>
+              </div>
+              <div className={`w-full lg:w-7/12 lg:absolute ${index % 2 === 0 ? 'lg:text-right lg:right-0' : 'lg:text-left lg:left-0'} lg:top-1/2 lg:transform lg:-translate-y-1/2`}>
+                <p className="text-accent mb-2 text-sm lg:text-base font-semibold" id="codeFont">{trans(project.categoryTransKey)}</p>
+                <h3 className="text-xl lg:text-2xl font-bold mb-3 lg:mb-4">
+                  {trans(project.titleTransKey)}
+                </h3>
+                <motion.div 
+                  className="bg-emerald-700 bg-opacity-80 backdrop-filter backdrop-blur-sm p-4 lg:p-6 rounded-lg shadow-md mb-4 border border-accent border-opacity-10"
+                  whileHover={{ boxShadow: "0px 10px 30px -5px rgba(0, 0, 0, 0.3)" }}
+                >
+                  <p className="text-sm lg:text-base">{trans(project.descriptionTransKey)}</p>
+                </motion.div>
+                <div className={`flex ${index % 2 === 0 ? 'lg:justify-end' : 'lg:justify-start'} space-x-4`}>
+                  <Link 
+                    href={project.live} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="relative group text-accent transition-colors duration-300 flex items-center"
+                  >
+                    Projekt ansehen
+                    <BsArrowUpRight size={16} className="ml-2" />
+                    <span className="absolute bottom-0 left-0 h-0.5 bg-accent w-0 group-hover:w-full transition-all duration-500 ease-in-out" />
+                  </Link>
+                  <Link 
+                    href={project.github} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="relative group text-accent transition-colors duration-300 flex items-center"
+                  >
+                    GitHub
+                    <BsGithub size={16} className="ml-2" />
+                    <span className="absolute bottom-0 left-0 h-0.5 bg-accent w-0 group-hover:w-full transition-all duration-500 ease-in-out" />
+                  </Link>
                 </div>
-            </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
 
         </motion.section>
     );
 }
+
+
