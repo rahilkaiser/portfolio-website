@@ -223,7 +223,7 @@ const skills = {
       ],
     },
     {
-      category: "Datenbanken",
+      category: "Database",
       skillList: [
         { name: "MySQL", level: 80 },
         { name: "MongoDB", level: 75 },
@@ -231,7 +231,7 @@ const skills = {
       ],
     },
     {
-      category: "Tools & Technologien",
+      category: "Tools",
       skillList: [
         { name: "Git", level: 85 },
         { name: "Docker", level: 70 },
